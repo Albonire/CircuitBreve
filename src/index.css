@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: #484f58; }
+::-webkit-scrollbar-corner { background: transparent; }
+
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #c0c4d0; }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #a0a8b8; }
+
+/* ─── Typography ─── */
+textarea { font-family: var(--font-mono); }
+textarea::placeholder { color: #484f58; opacity: 1; }
+[data-theme="light"] textarea::placeholder { color: #a8b0c0; }
+
+/* ─── Selection ─── */
+::selection { background: #58a6ff30; }
+[data-theme="light"] ::selection { background: #2563eb20; }
+
+/* ─── Focus ─── */
+textarea:focus { outline: none; }
+button:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 1px;
+  border-radius: 8px;
+}
+[data-theme="light"] button:focus-visible { outline-color: #2563eb; }
+
+/* ─── Circuit Nodes ─── */
+.circuit-node { cursor: pointer; }
+
+/* ─── Tables ─── */
+table { border-spacing: 0; }
+
+/* ─── Range Inputs ─── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  border-radius: 2px;
+  outline: none;
+  background: #30363d;
+}
+[data-theme="light"] input[type="range"] {
+  background: #d0d4dc;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #58a6ff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+[data-theme="light"] input[type="range"]::-webkit-slider-thumb {
+  background: #2563eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #58a6ff;
+  cursor: pointer;
+  border: none;
+}
+[data-theme="light"] input[type="range"]::-moz-range-thumb {
+  background: #2563eb;
+  border: none;
+}
+
+/* ─── Select ─── */
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: none;
+}
+
+/* ─── Resize Handles (invisible, cursor only) ─── */
+.resize-handle-h { transition: none; }
+.resize-handle-v { transition: none; }
